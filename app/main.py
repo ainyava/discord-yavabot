@@ -1,6 +1,7 @@
 import discord
 from app.config import settings
 from app.handlers import register_message_handler, register_sound_effect_handler
+from app.database import connection
 
 
 class YavaDiscordClient(discord.Client):
@@ -21,3 +22,4 @@ register_sound_effect_handler(client)
 
 
 client.run(token=settings.DISCORD_TOKEN)
+connection.close()
